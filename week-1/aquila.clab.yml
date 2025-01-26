@@ -2,19 +2,19 @@ name: aquila-base
 
 mgmt:
   network: mgmt_network
-  ipv4-subnet: 10.0.0.0/24
+  ipv4-subnet: 172.20.0.0/24
   
 topology:
   nodes:
-    spine1-thn:
-      group: thn
+    switch1-thn:
+      group: switches
       kind: nokia_srlinux
       type: ixrd5
       image: ghcr.io/nokia/srlinux
-      mgmt-ipv4: 10.0.0.240
+      mgmt-ipv4: 172.20.0.10
     spine2-thn:
-      group: thn
+      group: switches
       kind: nokia_srlinux
       type: ixrd5
       image: ghcr.io/nokia/srlinux
-      mgmt-ipv4: 10.0.0.241
+      mgmt-ipv4: 172.20.0.11
