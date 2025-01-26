@@ -6,15 +6,18 @@ mgmt:
   
 topology:
   nodes:
-    switch1-thn:
+    switch1-xx1:
       group: switches
       kind: nokia_srlinux
       type: ixrd5
       image: ghcr.io/nokia/srlinux
       mgmt-ipv4: 172.20.0.10
-    spine2-thn:
+    switch2-xx1:
       group: switches
       kind: nokia_srlinux
       type: ixrd5
       image: ghcr.io/nokia/srlinux
       mgmt-ipv4: 172.20.0.11
+
+  links:
+    - endpoints: ["switch1-xx1:ethernet-1/1","switch2-xx1:ethernet-1/1"]
