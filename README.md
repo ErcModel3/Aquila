@@ -6,6 +6,13 @@ A (hopefully scalable) network monitoring tool used to determine packet loss and
     * Display the network flow stats in a presentable (and useful!) way
     * Manage (onbboard, maintain and decomission) probes running on the network
 
+### Containerlab Testing Environment
+![Clab-PoC-Diagram](Diagrams/Aquila-clab.png)
+
+Unarguably the cleanest looking diagram of the project, the clab testing environment aims to have every possibe physical device needed for final implementation, all running on one (powerful-ish) hypervisor that will (aim to) be ready as soon as you run the command `sudo containerlab deploy` from the `Aquila/Containerlab/` directory.
+
+I aim to make playbooks / scripts to auto-deploy config and application data to the containers once provisioned and actually working.
+
 ### Physical Proof of Concept Testing environment
 ![Base-Diagram](Diagrams/Aquila-concept.png)
 
@@ -18,11 +25,3 @@ The packet flow of the probes would act as normal traffic on the network to simu
 ![Base-Management-Diagram](Diagrams/Aquila-mgmt-concept.png)
 
 To further test the application we can move to a more robust and expected enterprise-level network using layer3 switches to act as a peering exchange taking in client/member traffic (which the probes would replicate) from access switches making use of the management network to access the other services like the stats collector and portal.
-
-
-### Containerlab Testing Environment
-![Clab-PoC-Diagram](Diagrams/Aquila-clab.png)
-
-Unarguably the cleanest looking diagram of the project, the clab testing environment aims to have every possibe physical device needed for final implementation, all running on one (powerful-ish) hypervisor that will (aim to) be ready as soon as you run the command `sudo containerlab deploy` from the `Aquila/Containerlab/` directory.
-
-I aim to make playbooks / scripts to auto-deploy config and application data to the containers once provisioned and actually working.
