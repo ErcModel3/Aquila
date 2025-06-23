@@ -1,0 +1,53 @@
+all:
+  vars:
+    # The generated inventory is assumed to be used from the clab host.
+    # Hence no http proxy should be used. Therefore we make sure the http
+    # module does not attempt using any global http proxy.
+    ansible_httpapi_use_proxy: false
+  children:
+    juniper_vjunosrouter:
+      vars:
+        # ansible_connection: set ansible_connection variable if required
+        ansible_user: admin
+        ansible_password: admin@123
+      hosts:
+        clab-Aquila-core1:
+          ansible_host: 192.168.10.4
+        clab-Aquila-core2:
+          ansible_host: 192.168.10.5
+        clab-Aquila-core3:
+          ansible_host: 192.168.10.6
+    linux:
+      hosts:
+        clab-Aquila-probe-core1:
+          ansible_host: 192.168.10.40
+        clab-Aquila-probe-core2:
+          ansible_host: 192.168.10.50
+        clab-Aquila-probe-core3:
+          ansible_host: 192.168.10.60
+        clab-Aquila-stats-collector:
+          ansible_host: 192.168.10.101
+        clab-Aquila-stats-portal:
+          ansible_host: 192.168.10.100
+    application-servers:
+      hosts:
+        clab-Aquila-stats-collector:
+          ansible_host: 192.168.10.101
+        clab-Aquila-stats-portal:
+          ansible_host: 192.168.10.100
+    router:
+      hosts:
+        clab-Aquila-core1:
+          ansible_host: 192.168.10.4
+        clab-Aquila-core2:
+          ansible_host: 192.168.10.5
+        clab-Aquila-core3:
+          ansible_host: 192.168.10.6
+    servers:
+      hosts:
+        clab-Aquila-probe-core1:
+          ansible_host: 192.168.10.40
+        clab-Aquila-probe-core2:
+          ansible_host: 192.168.10.50
+        clab-Aquila-probe-core3:
+          ansible_host: 192.168.10.60
