@@ -1,0 +1,5 @@
+ansible
+ansible-core
+ansible-pylibssh
+paramiko
+napalm
