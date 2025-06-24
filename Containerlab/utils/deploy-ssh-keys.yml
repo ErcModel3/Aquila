@@ -1,0 +1,11 @@
+---
+- name: Deploy ssh keys to the core routers
+  hosts: juniper_vjunosrouter
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Ping anything from the routers
+      junipernetworks.junos.junos_ping:
+        dest: 192.168.10.5
+
