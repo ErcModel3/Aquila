@@ -8,6 +8,7 @@ topology:
   kinds:
     juniper_vjunosrouter:
       image: vrnetlab/juniper_vjunos-router:24.2R1-S2.5
+      startup-config: ./configs/vjunos-router.partial.txt
       group: router
       labels:
         ansible-group: router
@@ -25,50 +26,50 @@ topology:
     # Core switches
     core1:
       kind: juniper_vjunosrouter
-      startup-config: ./configs/core1-config.txt
+      # startup-config: ./configs/core1-config.txt
       mgmt-ipv4: 192.168.10.4
-    core2:
-      kind: juniper_vjunosrouter
-      startup-config: ./configs/core2-config.txt
-      mgmt-ipv4: 192.168.10.5
-    core3:
-      startup-config: ./configs/core3-config.txt
-      kind: juniper_vjunosrouter
-      mgmt-ipv4: 192.168.10.6
+    # core2:
+    #   kind: juniper_vjunosrouter
+    #   # startup-config: ./configs/core2-config.txt
+    #   mgmt-ipv4: 192.168.10.5
+    # core3:
+    #   # startup-config: ./configs/core3-config.txt
+    #   kind: juniper_vjunosrouter
+    #   mgmt-ipv4: 192.168.10.6
     
-    # servers
-    probe-core1:
-      kind: linux
-      mgmt-ipv4: 192.168.10.40
-      group: server
-      labels:
-        ansible-group: servers
-    probe-core2:
-      kind: linux
-      mgmt-ipv4: 192.168.10.50
-      group: server
-      labels:
-        ansible-group: servers
-    probe-core3:
-      kind: linux
-      mgmt-ipv4: 192.168.10.60
-      group: server
-      labels:
-        ansible-group: servers
+    # # servers
+    # probe-core1:
+    #   kind: linux
+    #   mgmt-ipv4: 192.168.10.40
+    #   group: server
+    #   labels:
+    #     ansible-group: servers
+    # probe-core2:
+    #   kind: linux
+    #   mgmt-ipv4: 192.168.10.50
+    #   group: server
+    #   labels:
+    #     ansible-group: servers
+    # probe-core3:
+    #   kind: linux
+    #   mgmt-ipv4: 192.168.10.60
+    #   group: server
+    #   labels:
+    #     ansible-group: servers
     
-    stats-portal:
-      kind: linux
-      mgmt-ipv4: 192.168.10.100
-      group: application-servers
-      labels:
-        ansible-group: application-servers
+    # stats-portal:
+    #   kind: linux
+    #   mgmt-ipv4: 192.168.10.100
+    #   group: application-servers
+    #   labels:
+    #     ansible-group: application-servers
 
-    stats-collector:
-      kind: linux
-      mgmt-ipv4: 192.168.10.101
-      group: application-servers
-      labels:
-        ansible-group: application-servers
+    # stats-collector:
+    #   kind: linux
+    #   mgmt-ipv4: 192.168.10.101
+    #   group: application-servers
+    #   labels:
+    #     ansible-group: application-servers
 
   links:
     # ISL Patching
