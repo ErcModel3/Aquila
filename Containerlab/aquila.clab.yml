@@ -26,9 +26,9 @@ topology:
     # Core switches
     core1:
       kind: juniper_vjunosrouter
-      # startup-config: ./configs/core1-config.txt
+      startup-config: configs/vjunos-base.txt
       mgmt-ipv4: 192.168.10.4
-    # core2:
+    # core2: 
     #   kind: juniper_vjunosrouter
     #   # startup-config: ./configs/core2-config.txt
     #   mgmt-ipv4: 192.168.10.5
@@ -71,13 +71,13 @@ topology:
     #   labels:
     #     ansible-group: application-servers
 
-  links:
-    # ISL Patching
-    - endpoints: ["core1:xe-0/0/0", core2:xe-0/0/0]
-    - endpoints: ["core1:xe-0/0/1", core3:xe-0/0/1]
-    - endpoints: ["core2:xe-0/0/2", core3:xe-0/0/2]
+  # links:
+    # # ISL Patching
+    # - endpoints: ["core1:xe-0/0/0", core2:xe-0/0/0]
+    # - endpoints: ["core1:xe-0/0/1", core3:xe-0/0/1]
+    # - endpoints: ["core2:xe-0/0/2", core3:xe-0/0/2]
     
-    # Probe patching
-    - endpoints: ["core1:xe-0/0/5", probe-core1:eth1"]
-    - endpoints: ["core2:xe-0/0/5", probe-core2:eth1"]
-    - endpoints: ["core3:xe-0/0/5", probe-core3:eth1"]
+    # # Probe patching
+    # - endpoints: ["core1:xe-0/0/5", probe-core1:eth1"]
+    # - endpoints: ["core2:xe-0/0/5", probe-core2:eth1"]
+    # - endpoints: ["core3:xe-0/0/5", probe-core3:eth1"]
