@@ -1,0 +1,5 @@
+configure
+set system login user alex uid 2001
+set system login user alex class super-user
+set system login user alex authentication ssh-ed25519 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBe2NbH9tX4MVZcfKTggOt60YgtHCbn2iE4S/WjZiKJz alex@Mac.localdomain"
+commit
