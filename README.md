@@ -5,7 +5,7 @@ A (hopefully scalable) network monitoring tool used to determine packet loss and
 * Junos on the routers (for now)
 
 ### High-level diagram:
-![Clab-PoC-Diagram](Diagrams/hld.png)
+![Clab-PoC-Diagram](Diagrams/hld.drawio.png)
 To test basic functionality we'll use this in the meantime before scaling out to bigger and better things.
 
 Rules:

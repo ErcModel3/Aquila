@@ -1,0 +1,11 @@
+# https://golangci-lint.run/
+
+version: "2"
+
+linters:
+  enable:
+    - errcheck
+    - gocritic
+
+issues:
+  max-same-issues: 5
