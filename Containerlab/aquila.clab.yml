@@ -1,4 +1,4 @@
-name: Aquila
+name: aquila
 
 mgmt:
   network: aquila-mgmt
@@ -6,78 +6,42 @@ mgmt:
 
 topology:
   kinds:
-    juniper_vjunosrouter:
-      image: vrnetlab/juniper_vjunos-router:24.2R1-S2.5
-      startup-config: ./configs/vjunos-router.partial.txt
-      group: router
-      labels:
-        ansible-group: router
+    juniper_vjunosswitch:
+      image: vrnetlab/juniper_vjunos-switch:25.4R1.12
     linux:
       image: ubuntu:24.04
-      dns:
-        servers:
-          - 1.1.1.1
-          - 8.8.4.4
-        
-    probe-server:
-    application-server:
 
   nodes:
-    # Core switches
-    core1:
-      kind: juniper_vjunosrouter
-      startup-config: configs/vjunos-base.txt
+    # Leaves
+    leaf1:
+      kind: juniper_vjunosswitch
+      mgmt-ipv4: 192.168.10.10
+    leaf2:
+      kind: juniper_vjunosswitch
+      mgmt-ipv4: 192.168.10.20
+
+    # Probes
+    probe-leaf1:
+      kind: linux
+      mgmt-ipv4: 192.168.10.5
+    probe-leaf2:
+      kind: linux
+      mgmt-ipv4: 192.168.10.6
+
+    # Orchestrator
+    orchestrator:
+      kind: linux
       mgmt-ipv4: 192.168.10.4
-    # core2: 
-    #   kind: juniper_vjunosrouter
-    #   # startup-config: ./configs/core2-config.txt
-    #   mgmt-ipv4: 192.168.10.5
-    # core3:
-    #   # startup-config: ./configs/core3-config.txt
-    #   kind: juniper_vjunosrouter
-    #   mgmt-ipv4: 192.168.10.6
-    
-    # # servers
-    # probe-core1:
-    #   kind: linux
-    #   mgmt-ipv4: 192.168.10.40
-    #   group: server
-    #   labels:
-    #     ansible-group: servers
-    # probe-core2:
-    #   kind: linux
-    #   mgmt-ipv4: 192.168.10.50
-    #   group: server
-    #   labels:
-    #     ansible-group: servers
-    # probe-core3:
-    #   kind: linux
-    #   mgmt-ipv4: 192.168.10.60
-    #   group: server
-    #   labels:
-    #     ansible-group: servers
-    
-    # stats-portal:
-    #   kind: linux
-    #   mgmt-ipv4: 192.168.10.100
-    #   group: application-servers
-    #   labels:
-    #     ansible-group: application-servers
 
-    # stats-collector:
-    #   kind: linux
-    #   mgmt-ipv4: 192.168.10.101
-    #   group: application-servers
-    #   labels:
-    #     ansible-group: application-servers
+  links:
+    # Inter-Leaf links
+    - endpoints: ["leaf1:eth9", "leaf2:eth9"]
+    - endpoints: ["leaf1:eth10", "leaf2:eth10"]
 
-  # links:
-    # # ISL Patching
-    # - endpoints: ["core1:xe-0/0/0", core2:xe-0/0/0]
-    # - endpoints: ["core1:xe-0/0/1", core3:xe-0/0/1]
-    # - endpoints: ["core2:xe-0/0/2", core3:xe-0/0/2]
-    
-    # # Probe patching
-    # - endpoints: ["core1:xe-0/0/5", probe-core1:eth1"]
-    # - endpoints: ["core2:xe-0/0/5", probe-core2:eth1"]
-    # - endpoints: ["core3:xe-0/0/5", probe-core3:eth1"]
+    # Leaf-Probe links
+    - endpoints: ["probe-leaf1:eth2", "leaf1:eth1"]
+    - endpoints: ["probe-leaf2:eth2", "leaf2:eth1"]
+
+    # Orchestrator-Probe links
+    - endpoints: ["orchestrator:eth1", "probe-leaf1:eth1"]
+    - endpoints: ["orchestrator:eth2", "probe-leaf2:eth1"]
