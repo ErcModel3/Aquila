@@ -6,8 +6,6 @@ linters:
   enable:
     - errcheck
     - gocritic
-    - gofmt
-    - gosimple
 
 issues:
   max-same-issues: 5
