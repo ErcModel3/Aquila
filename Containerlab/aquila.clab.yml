@@ -14,7 +14,7 @@ topology:
   nodes:
     # Leaves
     leaf1:
-      kind: junipervjunosrouter
+      kind: juniper_vjunosrouter
       mgmt-ipv4: 192.168.10.254
     leaf2:
       kind: juniper_vjunosrouter
