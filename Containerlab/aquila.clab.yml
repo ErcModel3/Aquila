@@ -6,19 +6,19 @@ mgmt:
 
 topology:
   kinds:
-    juniper_vjunosswitch:
-      image: vrnetlab/juniper_vjunos-switch:25.4R1.12
+    juniper_vjunosrouter:
+      image: vrnetlab/juniper_vjunos-router:25.4R1.12
     linux:
       image: ubuntu:24.04
 
   nodes:
     # Leaves
     leaf1:
-      kind: juniper_vjunosswitch
-      mgmt-ipv4: 192.168.10.10
+      kind: juniper_vjunosrouter
+      mgmt-ipv4: 192.168.10.254
     leaf2:
-      kind: juniper_vjunosswitch
-      mgmt-ipv4: 192.168.10.20
+      kind: juniper_vjunosrouter
+      mgmt-ipv4: 192.168.10.253
 
     # Probes
     probe-leaf1:
