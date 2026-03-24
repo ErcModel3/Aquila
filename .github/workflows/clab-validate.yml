@@ -22,4 +22,4 @@ jobs:
 
       - name: Validate clab topology
         run: |
-          containerlab inspect --topo Containerlab/aquila.clab.yml --offline
+          containerlab graph --topo Containerlab/aquila.clab.yml --dot
