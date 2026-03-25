@@ -1,7 +1,8 @@
-name: Bulid and push probe image to docker hub
+name: Build and push probe image to docker hub
 on:
   push:
     branches: [ "main" ]
+  pull_request:
     paths:
       # To-do may want to change this depending on how frequently we're pushing changes
       - 'Probe/**'
