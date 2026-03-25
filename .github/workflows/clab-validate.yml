@@ -1,0 +1,25 @@
+name: Containerlab Validation
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate-topology
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Install containerlab
+        run: |
+          sudo bash -c "$(curl -sL https://get.containerlab.dev)"
+
+      - name: Validate clab topology
+        run: |
+          containerlab graph --topo Containerlab/aquila.clab.yml --dot
