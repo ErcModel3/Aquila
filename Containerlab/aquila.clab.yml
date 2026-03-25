@@ -16,32 +16,63 @@ topology:
     leaf1:
       kind: juniper_vjunosrouter
       mgmt-ipv4: 192.168.10.254
+      group: site1
     leaf2:
       kind: juniper_vjunosrouter
       mgmt-ipv4: 192.168.10.253
+      group: site2
+    leaf3:
+      kind: juniper_vjunosrouter
+      mgmt-ipv4: 192.168.10.252
+      group: site3
+    leaf4:
+      kind: juniper_vjunosrouter
+      mgmt-ipv4: 192.168.10.251
+      group: site4
 
     # Probes
     probe-leaf1:
       kind: linux
       mgmt-ipv4: 192.168.10.5
+      group: site1
     probe-leaf2:
       kind: linux
       mgmt-ipv4: 192.168.10.6
+      group: site2
+    probe-leaf3:
+      kind: linux
+      mgmt-ipv4: 192.168.10.7
+      group: site3
+    probe-leaf4:
+      kind: linux
+      mgmt-ipv4: 192.168.10.8
+      group: site4
 
     # Orchestrator
     orchestrator:
       kind: linux
       mgmt-ipv4: 192.168.10.4
+      group: servers
 
   links:
     # Inter-Leaf links
     - endpoints: ["leaf1:eth9", "leaf2:eth9"]
     - endpoints: ["leaf1:eth10", "leaf2:eth10"]
+    - endpoints: [ "leaf1:eth11", "leaf3:eth11" ]
+    - endpoints: [ "leaf1:eth12", "leaf3:eth12" ]
+    - endpoints: [ "leaf2:eth11", "leaf4:eth11" ]
+    - endpoints: [ "leaf2:eth12", "leaf4:eth12" ]
+    - endpoints: [ "leaf3:eth9", "leaf4:eth9" ]
+    - endpoints: [ "leaf3:eth10", "leaf4:eth10" ]
 
     # Leaf-Probe links
     - endpoints: ["probe-leaf1:eth2", "leaf1:eth1"]
     - endpoints: ["probe-leaf2:eth2", "leaf2:eth1"]
+    - endpoints: [ "probe-leaf3:eth2", "leaf3:eth1" ]
+    - endpoints: [ "probe-leaf4:eth2", "leaf4:eth1" ]
 
     # Orchestrator-Probe links
     - endpoints: ["orchestrator:eth1", "probe-leaf1:eth1"]
     - endpoints: ["orchestrator:eth2", "probe-leaf2:eth1"]
+    - endpoints: [ "orchestrator:eth3", "probe-leaf3:eth1" ]
+    - endpoints: [ "orchestrator:eth4", "probe-leaf4:eth1" ]
