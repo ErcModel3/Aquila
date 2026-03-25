@@ -9,7 +9,7 @@ topology:
     juniper_vjunosrouter:
       image: vrnetlab/juniper_vjunos-router:25.4R1.12
     linux:
-      image: ubuntu:24.04
+      image: rubydelusion/aquila:probe-latest
 
   nodes:
     # Leaves
