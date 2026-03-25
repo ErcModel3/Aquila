@@ -56,8 +56,8 @@ topology:
 
   links:
     # Inter-Leaf links
-    - endpoints: ["leaf1:eth9", "leaf2:eth9"]
-    - endpoints: ["leaf1:eth10", "leaf2:eth10"]
+    - endpoints: [ "leaf1:eth9", "leaf2:eth9" ]
+    - endpoints: [ "leaf1:eth10", "leaf2:eth10" ]
     - endpoints: [ "leaf1:eth11", "leaf3:eth11" ]
     - endpoints: [ "leaf1:eth12", "leaf3:eth12" ]
     - endpoints: [ "leaf2:eth11", "leaf4:eth11" ]
@@ -66,13 +66,13 @@ topology:
     - endpoints: [ "leaf3:eth10", "leaf4:eth10" ]
 
     # Leaf-Probe links
-    - endpoints: ["probe-leaf1:eth2", "leaf1:eth1"]
-    - endpoints: ["probe-leaf2:eth2", "leaf2:eth1"]
+    - endpoints: [ "probe-leaf1:eth2", "leaf1:eth1" ]
+    - endpoints: [ "probe-leaf2:eth2", "leaf2:eth1" ]
     - endpoints: [ "probe-leaf3:eth2", "leaf3:eth1" ]
     - endpoints: [ "probe-leaf4:eth2", "leaf4:eth1" ]
 
     # Orchestrator-Probe links
-    - endpoints: ["orchestrator:eth1", "probe-leaf1:eth1"]
-    - endpoints: ["orchestrator:eth2", "probe-leaf2:eth1"]
+    - endpoints: [ "orchestrator:eth1", "probe-leaf1:eth1" ]
+    - endpoints: [ "orchestrator:eth2", "probe-leaf2:eth1" ]
     - endpoints: [ "orchestrator:eth3", "probe-leaf3:eth1" ]
     - endpoints: [ "orchestrator:eth4", "probe-leaf4:eth1" ]
