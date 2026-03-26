@@ -1,0 +1,79 @@
+{
+  "freeTextAnnotations": [],
+  "freeShapeAnnotations": [],
+  "trafficRateAnnotations": [],
+  "groupStyleAnnotations": [],
+  "networkNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "leaf1",
+      "position": {
+        "x": 280,
+        "y": 80
+      }
+    },
+    {
+      "id": "leaf2",
+      "position": {
+        "x": 440,
+        "y": 80
+      }
+    },
+    {
+      "id": "leaf3",
+      "position": {
+        "x": 280,
+        "y": 200
+      }
+    },
+    {
+      "id": "leaf4",
+      "position": {
+        "x": 440,
+        "y": 200
+      }
+    },
+    {
+      "id": "probe-leaf1",
+      "position": {
+        "x": 200,
+        "y": 0
+      },
+      "icon": "server"
+    },
+    {
+      "id": "probe-leaf2",
+      "position": {
+        "x": 520,
+        "y": 0
+      },
+      "icon": "server"
+    },
+    {
+      "id": "probe-leaf3",
+      "position": {
+        "x": 200,
+        "y": 280
+      },
+      "icon": "server"
+    },
+    {
+      "id": "probe-leaf4",
+      "position": {
+        "x": 520,
+        "y": 280
+      },
+      "icon": "server"
+    },
+    {
+      "id": "orchestrator",
+      "position": {
+        "x": 360,
+        "y": 0
+      }
+    }
+  ],
+  "edgeAnnotations": [],
+  "aliasEndpointAnnotations": [],
+  "viewerSettings": {}
+}
