@@ -10,3 +10,4 @@ Containerlab/clab-aquila/.tls/
 Containerlab/clab-aquila/*leaf*/
 Containerlab/clab-aquila/*.json
 Containerlab/clab-aquila/authorized_keys
+Containerlab/clab-aquila/*.yml
