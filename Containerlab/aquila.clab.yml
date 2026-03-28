@@ -10,6 +10,8 @@ topology:
       image: vrnetlab/juniper_vjunos-router:25.4R1.12
     linux:
       image: rubydelusion/aquila:probe-latest
+      binds:
+        - configs/sshd_config:/etc/ssh/sshd_config
 
   nodes:
     # Leaves
