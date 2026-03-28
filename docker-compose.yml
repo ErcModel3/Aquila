@@ -1,0 +1,7 @@
+services:
+  probe:
+    image: rubydelusion/aquila:probe-latest
+    volumes:
+      - ./Containerlab/configs/sshd_config:/config/sshd_config
+    ports:
+      - "2201:22"
