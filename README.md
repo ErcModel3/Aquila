@@ -8,10 +8,10 @@ A (hopefully scalable) network monitoring tool used to determine packet loss and
 ![Clab-PoC-Diagram](Diagrams/hld.drawio.png)
 To test basic functionality we'll use this in the meantime before scaling out to bigger and better things.
 
-Rules:
+# Rules:
 * Dan's not allowed to write any php
 
-Tasks:
+# Tasks:
 
 **Alex**
 * Build out network 
