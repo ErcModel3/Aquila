@@ -12,14 +12,28 @@ Rules:
 * Dan's not allowed to write any php
 
 Tasks:
-* Design containerlab testing topology - **Alex**
-* Build containerlab topology - **Bas**
-    * Plan an IP addressing scheme
-    * Build containerlab topology as per network diagram
-* Configure containerlab (network) - **Vio**
+
+**Alex**
+* Build out network 
+    * Configure lacp + ospf ring
+    * Document ip addresing schema for isls
+* Provision probe interfaces + draft netplan role
+* Build / Provision containers for orcestrator / visualisation server
+    * Update development dockumentation
+
+**Bas**
+* Write / scaffold Go module
+* Write PoC scripts to make the probes ping eachother on their LAN interfaces
+* Draft go unit tests + actions
+* Test clab network
+
+**Vio**
+* Configure containerlab (network)
     * Write config templates / config files as network as per diagram
     * Write a provisioning script to apply the configs to the switches
-* Configure containerlab (systems) - **Dan**
+
+**Dan**
+* Configure containerlab (systems)
     Using ansible:
     * Deploy ssh keys for all users + do correct permissions
     * Work with containerlab kind default ubuntu user
