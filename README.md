@@ -8,6 +8,13 @@ A (hopefully scalable) network monitoring tool used to determine packet loss and
 ![Clab-PoC-Diagram](Diagrams/hld.drawio.png)
 To test basic functionality we'll use this in the meantime before scaling out to bigger and better things.
 
+| ISL Name    | A End                                 | A End IP       | B End                                 | B End IP       |
+|-------------|---------------------------------------|----------------|---------------------------------------|----------------|
+| ae102       | leaf1 ethernet-1/9 leaf1 ethernet-1/10 | 172.16.10.0/31 | leaf1 ethernet-1/9 leaf1 ethernet-1/10 | 172.16.10.1/31 |
+| ae103       | leaf1 ethernet-1/11 leaf1 ethernet-1/12 | 172.16.10.2/31 | leaf3 ethernet-1/11 leaf3 ethernet-1/12 | 172.16.10.3/31 |
+| ae204       | leaf2 ethernet-1/11 leaf2 ethernet-1/12 | 172.16.10.4/31 | leaf4 ethernet-1/11 leaf4 ethernet-1/12 | 172.16.10.5/31 |
+| ae304       | leaf3 ethernet-1/9 leaf3 ethernet-1/10 | 172.16.10.6/31 | leaf4 ethernet-1/9 leaf4 ethernet-1/10 | 172.16.10.6/31 |
+
 # Rules:
 * Dan's not allowed to write any php
 
