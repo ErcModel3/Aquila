@@ -2,7 +2,7 @@ FROM ubuntu:24.04 as base
 LABEL authors="alex"
 
 RUN apt-get update && \
-    apt-get install -y openssh-server sudo && \
+    apt-get install -y openssh-server iputils-ping net-tools iproute2 netplan.io sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

@@ -5,6 +5,10 @@
 
 Diagrams/*.bkp
 
+# Ansible related
+ansible/venv/
+ansible/.venv/
+
 # Containerlab related
 Containerlab/clab-aquila/.tls/
 Containerlab/clab-aquila/*leaf*/
