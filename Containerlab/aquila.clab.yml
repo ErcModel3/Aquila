@@ -27,10 +27,12 @@ topology:
     leaf3:
       kind: nokia_srlinux
       mgmt-ipv4: 192.168.10.252
+      startup-config: ./configs/leaf3.cfg
       group: site3
     leaf4:
       kind: nokia_srlinux
       mgmt-ipv4: 192.168.10.251
+      startup-config: ./configs/leaf3.cfg
       group: site4
 
     # Probes
