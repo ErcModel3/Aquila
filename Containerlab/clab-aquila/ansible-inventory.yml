@@ -5,20 +5,6 @@ all:
     # module does not attempt using any global http proxy.
     ansible_httpapi_use_proxy: false
   children:
-    juniper_vjunosrouter:
-      vars:
-        # ansible_connection: set ansible_connection variable if required
-        ansible_user: admin
-        ansible_password: admin@123
-      hosts:
-        clab-aquila-leaf1:
-          ansible_host: 192.168.10.254
-        clab-aquila-leaf2:
-          ansible_host: 192.168.10.253
-        clab-aquila-leaf3:
-          ansible_host: 192.168.10.252
-        clab-aquila-leaf4:
-          ansible_host: 192.168.10.251
     linux:
       hosts:
         clab-aquila-orchestrator:
@@ -31,3 +17,20 @@ all:
           ansible_host: 192.168.10.7
         clab-aquila-probe-leaf4:
           ansible_host: 192.168.10.8
+    nokia_srlinux:
+      vars:
+        ansible_network_os: nokia.srlinux.srlinux
+        # default connection type for nodes of this kind
+        # feel free to override this in your inventory
+        ansible_connection: ansible.netcommon.httpapi
+        ansible_user: admin
+        ansible_password: NokiaSrl1!
+      hosts:
+        clab-aquila-leaf1:
+          ansible_host: 192.168.10.254
+        clab-aquila-leaf2:
+          ansible_host: 192.168.10.253
+        clab-aquila-leaf3:
+          ansible_host: 192.168.10.252
+        clab-aquila-leaf4:
+          ansible_host: 192.168.10.251
