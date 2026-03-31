@@ -1,24 +1,4 @@
 ---
-leaf1:
-    username: admin
-    password: admin@123
-    platform: juniper_vjunosrouter
-    hostname: 192.168.10.254
-leaf2:
-    username: admin
-    password: admin@123
-    platform: juniper_vjunosrouter
-    hostname: 192.168.10.253
-leaf3:
-    username: admin
-    password: admin@123
-    platform: juniper_vjunosrouter
-    hostname: 192.168.10.252
-leaf4:
-    username: admin
-    password: admin@123
-    platform: juniper_vjunosrouter
-    hostname: 192.168.10.251
 orchestrator:
     username: 
     password: 
@@ -44,3 +24,23 @@ probe-leaf4:
     password: 
     platform: linux
     hostname: 192.168.10.8
+leaf1:
+    username: admin
+    password: NokiaSrl1!
+    platform: nokia_srlinux
+    hostname: 192.168.10.254
+leaf2:
+    username: admin
+    password: NokiaSrl1!
+    platform: nokia_srlinux
+    hostname: 192.168.10.253
+leaf3:
+    username: admin
+    password: NokiaSrl1!
+    platform: nokia_srlinux
+    hostname: 192.168.10.252
+leaf4:
+    username: admin
+    password: NokiaSrl1!
+    platform: nokia_srlinux
+    hostname: 192.168.10.251

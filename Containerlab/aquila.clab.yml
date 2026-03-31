@@ -6,27 +6,28 @@ mgmt:
 
 topology:
   kinds:
-    juniper_vjunosrouter:
-      image: vrnetlab/juniper_vjunos-router:25.4R1.12
+    nokia_srlinux:
+      image: ghcr.io/nokia/srlinux
+      type: ixr-d3
     linux:
       image: rubydelusion/aquila:probe-latest
 
   nodes:
     # Leaves
     leaf1:
-      kind: juniper_vjunosrouter
+      kind: nokia_srlinux
       mgmt-ipv4: 192.168.10.254
       group: site1
     leaf2:
-      kind: juniper_vjunosrouter
+      kind: nokia_srlinux
       mgmt-ipv4: 192.168.10.253
       group: site2
     leaf3:
-      kind: juniper_vjunosrouter
+      kind: nokia_srlinux
       mgmt-ipv4: 192.168.10.252
       group: site3
     leaf4:
-      kind: juniper_vjunosrouter
+      kind: nokia_srlinux
       mgmt-ipv4: 192.168.10.251
       group: site4
 
@@ -56,20 +57,20 @@ topology:
 
   links:
     # Inter-Leaf links
-    - endpoints: [ "leaf1:eth9", "leaf2:eth9" ]
-    - endpoints: [ "leaf1:eth10", "leaf2:eth10" ]
-    - endpoints: [ "leaf1:eth11", "leaf3:eth11" ]
-    - endpoints: [ "leaf1:eth12", "leaf3:eth12" ]
-    - endpoints: [ "leaf2:eth11", "leaf4:eth11" ]
-    - endpoints: [ "leaf2:eth12", "leaf4:eth12" ]
-    - endpoints: [ "leaf3:eth9", "leaf4:eth9" ]
-    - endpoints: [ "leaf3:eth10", "leaf4:eth10" ]
+    - endpoints: [ "leaf1:ethernet-1/9", "leaf2:ethernet-1/9" ]
+    - endpoints: [ "leaf1:ethernet-1/10", "leaf2:ethernet-1/10" ]
+    - endpoints: [ "leaf1:ethernet-1/11", "leaf3:ethernet-1/11" ]
+    - endpoints: [ "leaf1:ethernet-1/12", "leaf3:ethernet-1/12" ]
+    - endpoints: [ "leaf2:ethernet-1/11", "leaf4:ethernet-1/11" ]
+    - endpoints: [ "leaf2:ethernet-1/12", "leaf4:ethernet-1/12" ]
+    - endpoints: [ "leaf3:ethernet-1/9", "leaf4:ethernet-1/9" ]
+    - endpoints: [ "leaf3:ethernet-1/10", "leaf4:ethernet-1/10" ]
 
     # Leaf-Probe links
-    - endpoints: [ "probe-leaf1:eth2", "leaf1:eth1" ]
-    - endpoints: [ "probe-leaf2:eth2", "leaf2:eth1" ]
-    - endpoints: [ "probe-leaf3:eth2", "leaf3:eth1" ]
-    - endpoints: [ "probe-leaf4:eth2", "leaf4:eth1" ]
+    - endpoints: [ "probe-leaf1:ethernet-1/2", "leaf1:ethernet-1/1" ]
+    - endpoints: [ "probe-leaf2:ethernet-1/2", "leaf2:ethernet-1/1" ]
+    - endpoints: [ "probe-leaf3:ethernet-1/2", "leaf3:ethernet-1/1" ]
+    - endpoints: [ "probe-leaf4:ethernet-1/2", "leaf4:ethernet-1/1" ]
 
     # Orchestrator-Probe links
     - endpoints: [ "orchestrator:eth1", "probe-leaf1:eth1" ]
