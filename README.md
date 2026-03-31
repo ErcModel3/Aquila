@@ -41,9 +41,8 @@ Since we're using srlinux on containerlab, we can run topologies via whatever li
 * Build out network 
     * Configure lacp + ospf ring
     * Document ip addresing schema for isls
-* Provision probe interfaces + draft netplan role
+* Provision probe interfaces + draft netplan + ufw roles
 * Build / Provision containers for orcestrator / visualisation server
-    * Update development dockumentation
 
 **Bas**
 * Write / scaffold Go module
@@ -55,11 +54,19 @@ Since we're using srlinux on containerlab, we can run topologies via whatever li
 * Configure containerlab (network)
     * Write config templates / config files as network as per diagram
     * Write a provisioning script to apply the configs to the switches
+    * Configure leaf4
+        * ISL interface config
+        * OSPF config
+        * Loopback interface
+        * Auto-provision based on containerlab topology
 
 **Dan**
 * Configure containerlab (systems)
     Using ansible:
-    * Deploy ssh keys for all users + do correct permissions
-    * Work with containerlab kind default ubuntu user
+    * Deploy ssh keys for all users + do correct user permissions
     * Provision aquila-user with correct permissions
     * Place demo file in aquila-user dir with correct permissions
+    * Configure probe-leaf4
+        * Netplan vars based on ip schema
+        * UFW allow config / hardening
+        * Auto-provision based on containerlab topology
