@@ -4,6 +4,9 @@ on:
     branches:
       - master
   pull_request:
+    paths:
+      - 'Containerlab/**'
+      - 'Containerlab-SRL/**'
 
 permissions:
   contents: read
